@@ -45,7 +45,9 @@ ul {
 
 .header {
     border-bottom: 1px solid #e7e9fc;
-    
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 /*конец подготовки */
@@ -63,16 +65,13 @@ display: flex;
 .navcon {
     display: flex;
     align-items: center;
+
 }
 
 .nav-list {
     display: flex;
     gap: 40px;
-}
-
-.nav-list .link .lis {
-    display: flex;
-    padding: 24px 0;
+   
 }
 
 .logo {
@@ -99,25 +98,30 @@ display: flex;
     color: #404bbf;
 }
 
-.nav-list .link a {
+.nav-list .link .lis {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #2e2f42;
-
+display: flex;
+    padding: 24px 0;
 }
-
-.nav-list .link a:hover,
+.nav-list .link:first-child .lis
+{
+    color:#404bbf;
+}
+.nav-list .link .lis:hover,
 .link:focus {
     color: #404bbf;
 }
-
-.nav-list .link:first-child .lis:active
-{
-   color: #404bbf;
-   border-bottom: 4px solid #404BBF ;
+.nav-list:first-child .link .lis
+{  position: relative;
+    color: #404bbf;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
 
 
 .address-list {
@@ -156,38 +160,17 @@ display: flex;
 }
 
 .hero {
+    max-width: 1440px;
     padding: 188px 0;
     background-color: #2e2f42;
     background-image: linear-gradient( 
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)),
-        url(../images/people-office1.png);
+        url(../images/office.jpg);
+        background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.sprite-list
-{   margin-top: 8px;
-    display: flex;
-    justify-content: center;
-  
-    gap: 24px;
-   
-}
-.sprite-link
-{   display: flex;
-    background-color: #4D5AE5;
-    align-items: center;
-    justify-content: center;
-    fill: #F4F4FD;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-   
-}
-.sprite-link:hover
-{
-    background-color: #404BBF;
+    margin: 0 auto;
 }
 .title {
     font-size: 56px;
@@ -215,6 +198,9 @@ display: flex;
     border-radius: 4px;
     cursor: pointer;
     margin: 0 auto;
+
+
+    transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -281,9 +267,11 @@ display: flex;
 }
 /*#8E8F99 border*/
 .content-image
-{
+{   display: flex;
+    align-items: center;
+    justify-content: center;
     height: 112px;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color:#F4F4FD ;
     border: 1px solid #8E8F99;
     margin-bottom: 8px;
@@ -331,7 +319,32 @@ display: flex;
     margin-bottom: 72px;
 
 }
+.sprite-list {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
 
+    gap: 24px;
+
+}
+
+.sprite-link {
+    display: flex;
+    background-color: #4D5AE5;
+    align-items: center;
+    justify-content: center;
+    fill: #F4F4FD;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.sprite-link:hover,
+.sprite-link:focus {
+    background-color: #404BBF;
+}
 .team-ul {
     display: flex;
     gap: 24px;
@@ -343,6 +356,7 @@ display: flex;
     flex-basis: calc((100% - 72px) / 4);
     background-color: #FFFFFF;
     border-radius: 0px 0px 4px 4px;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 .team-list:hover
 {
@@ -414,6 +428,7 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
     display: flex;
     width: calc((100% - 48px) / 3);
     flex-direction: column;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 .portfolioli:hover
@@ -461,7 +476,7 @@ font-weight: 400;
 
     transform: translateY(100%);
     background-color: #4D5AE5;
-transition: transform 300ms linear;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -504,16 +519,19 @@ transition: transform 300ms linear;
 .footer .container
 {
     display: flex;
-    gap: 120px;
+    align-items: baseline
 }
-
+.footer-logo
+{
+ margin-right: 120px;
+}
 .social-media-title
 {
     font-weight: 500;
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: 0.02em;
-        color: #fff;
+        color: #FFFFFF;
         margin-bottom: 16px;
 }
 .footer-sprite-list
@@ -531,8 +549,10 @@ transition: transform 300ms linear;
     width: 40px;
      fill: #F4F4FD;
     background-color: #4D5AE5;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.footer-sprite-link:hover
+.footer-sprite-link:hover,
+.footer-sprite-link:focus
 {
 background-color:#31D0AA;
 }
